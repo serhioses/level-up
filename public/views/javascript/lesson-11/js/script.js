@@ -328,25 +328,3 @@
 // Object.keys(obj) - enumerable, Object.getOwnPropertyNames(obj) - all own
 
 // Object.getOwnPropertyDescriptor(obj, prop)
-var house = {
-  floors: 2
-};
-house.material = 'brick';
-Object.defineProperty(house, 'windows', {
-  value: 13,
-  writable: false,
-  configurable: false,
-  enumerable: true
-});
-
-// delete house.windows;
-
-// var descriptor = Object.getOwnPropertyDescriptor(house, 'windows');
-// console.log(descriptor);
-
-// descriptor.configurable = true;
-// descriptor.writable = true;
-// console.log(descriptor);
-// // delete house.windows;
-
-// Object.defineProperty(house, 'windows', descriptor);
