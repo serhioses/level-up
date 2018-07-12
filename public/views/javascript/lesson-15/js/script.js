@@ -291,3 +291,73 @@
 //   items = filterByScore(items, 10);
 //   console.log(items);
 // };
+
+
+// setTimeout
+// var timerId = setTimeout(func, delay [, arg1, arg2...])
+// function sayHi () {
+//   console.log('Hi!!!');
+// }
+// setTimeout(sayHi, 1000);
+// function sum (a, b) {
+//   console.log(a + b);
+// }
+// // setTimeout(sum, 1500, 5, 7);
+// setTimeout(function () {
+//   sum(5, 7);
+// }, 1500);
+
+// clearTimeout(timerId)
+// var timerId = setTimeout(function () {
+//   console.log('This will never logged');
+// }, 2000);
+// clearTimeout(timerId);
+
+
+// setInterval
+// var timerId = setInterval(func / code, delay[, arg1, arg2...])
+// clearInterval(timerId)
+
+// var timerId = setInterval(function () {
+//   console.log('Again an again');
+// }, 500);
+
+// setTimeout(function () {
+//   clearInterval(timerId);
+// }, 6000);
+
+// recursive timeout
+// var counter = 0;
+// var timerId = setTimeout(function tick () {
+//   counter += 1;
+
+//   console.log(counter);
+
+//   timerId = setTimeout(tick, 1000);
+// }, 1000);
+// setTimeout(function () {
+//   clearTimeout(timerId);
+// }, 5000);
+
+
+
+// OOP - functional style
+// Interfaces (private and public)
+function Photograph (src) {
+  var image = new Image();
+
+  this.name = 'Photograph ' + Math.random();
+
+  this.init = function () {
+    var reader = new FileReader();
+
+    reader.onload = function () {
+      
+    };
+
+    reader.readAsDataURL(src);
+  };
+
+  return this;
+}
+var landscape = new Photograph('https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?auto=compress&cs=tinysrgb&h=350');
