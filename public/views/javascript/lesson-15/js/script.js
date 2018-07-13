@@ -371,6 +371,45 @@
   
 // }
 
+// var resultExample = {
+//   '2018-4-14': [
+//     {
+//       id: 0,
+//       amount: 4,
+//       rate: 2,
+//       time: 1526245200000
+//     },
+//     {
+//       id: 1,
+//       amount: 8,
+//       rate: 6,
+//       time: 1526245200000
+//     }
+//   ],
+//   '2018-6-12': [
+//     {
+//       id: 3,
+//       amount: 5,
+//       rate: 1,
+//       time: 1531342800000
+//     }
+//   ],
+//   '2018-7-13': [
+//     {
+//       id: 4,
+//       amount: 11,
+//       rate: 9,
+//       time: 1534107600000
+//     },
+//     {
+//       id: 5,
+//       amount: 6,
+//       rate: 7,
+//       time: 1534107600000
+//     }
+//   ]
+// };
+
 
 // OOP - functional style
 // Interfaces (private and public)
