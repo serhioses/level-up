@@ -340,24 +340,155 @@
 // }, 5000);
 
 
+// super hard task
+// transform to object and group by same date, month and year "year-month-date"
+// const getData = (initialId = 0) => {
+//   const result = [];
+
+//   for (let i = initialId, j = 1; i < initialId + 20; i += 1, j += 1) {
+//     const id = i;
+//     const amount = Math.abs(j * 3 * 1.5);
+
+//     const rate = Math.random();
+
+//     const d = Math.floor(12 + Math.random() * (14 + 1 - 12));
+//     const m = Math.floor(4 + Math.random() * (5 + 1 - 4));
+//     const y = 2018;
+
+//     const time = new Date(y, m, d).getTime();
+
+//     result.push({
+//       id,
+//       amount,
+//       rate,
+//       time,
+//     });
+//   }
+
+//   return result;
+// };
+// function funcName (arg1, arg2) {
+  
+// }
+
 
 // OOP - functional style
 // Interfaces (private and public)
-function Photograph (src) {
-  var image = new Image();
+// function Photograph (src) {
+//   this.name = 'Photograph ' + Math.random();
 
-  this.name = 'Photograph ' + Math.random();
+//   return this;
+// }
+// var landscape = new Photograph('https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?auto=compress&cs=tinysrgb&h=350');
 
-  this.init = function () {
-    var reader = new FileReader();
+// public and privat methods
+// function Photograph (src) {
+//   var image = new Image();
 
-    reader.onload = function () {
-      
-    };
+//   this.name = 'Photograph ' + Math.random();
 
-    reader.readAsDataURL(src);
-  };
+//   function onImageLoad () {
+//     console.log('loaded');
+//   };
 
-  return this;
-}
-var landscape = new Photograph('https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?auto=compress&cs=tinysrgb&h=350');
+//   this.init = function () {
+//     image.onload = onImageLoad;
+
+//     image.src = src;
+//   };
+
+//   return this;
+// }
+// var landscape = new Photograph('https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?auto=compress&cs=tinysrgb&h=350');
+// landscape.init();
+
+// constants
+// function Photograph (src) {
+//   var image = new Image();
+//   var thumb;
+
+//   this.name = 'Photograph ' + Math.random();
+
+//   function onImageLoad () {
+//     console.log('loaded');
+
+//     document.body.appendChild(image);
+//   };
+
+//   function getProportion () {
+//     return image.naturalWidth / image.naturalHeight;
+//   }
+
+//   this.init = function () {
+//     image.onload = onImageLoad;
+
+//     image.src = src;
+//   };
+
+//   this.createThumb = function (width) {
+//     width = width || Photograph.DEFAULT_THUMB_WIDTH;
+
+//     return width / getProportion();
+//   };
+
+//   return this;
+// }
+// Photograph.DEFAULT_THUMB_WIDTH = 640;
+
+// var landscape = new Photograph('https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?auto=compress&cs=tinysrgb&h=350');
+// landscape.init();
+
+
+// real example
+// function Photograph (src) {
+//   var image = new Image();
+//   var thumb;
+
+//   this.name = 'Photograph ' + Math.random();
+
+//   function onImageLoad () {
+//     console.log('loaded');
+
+//     document.body.appendChild(image);
+//   };
+
+//   function getProportion () {
+//     return image.naturalWidth / image.naturalHeight;
+//   }
+
+//   this.init = function () {
+//     image.onload = onImageLoad;
+
+//     image.src = src;
+//   };
+
+//   this.createThumb = function (width) {
+//     var canvas = document.createElement('canvas');
+//     var ctx = canvas.getContext('2d');
+
+//     width = width || Photograph.DEFAULT_THUMB_WIDTH;
+//     height = width / getProportion();
+
+//     canvas.width = width;
+//     canvas.height = height;
+
+//     ctx.drawImage(image, 0, 0, width, height);
+
+//     thumb = new Image();
+
+//     thumb.onload = function () {
+//       document.body.appendChild(thumb);
+//     };
+
+//     thumb.src = canvas.toDataURL('image/jpeg');
+//   };
+
+//   return this;
+// }
+// Photograph.DEFAULT_THUMB_WIDTH = 640;
+
+// var landscape = new Photograph('https://images.pexels.com/photos/414171/pexels-photo-414171.jpeg?auto=compress&cs=tinysrgb&h=350');
+// landscape.init();
+// setTimeout(function () {
+//   landscape.createThumb();
+// }, 1000);
