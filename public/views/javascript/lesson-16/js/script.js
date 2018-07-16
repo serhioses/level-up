@@ -361,3 +361,116 @@
 // set proto
 // read and write difference, delete
 // only one prototype
+
+// function Buffer (initialValue) {
+//   var value = initialValue || Buffer.DEFAULT_VALUE;
+
+//   this.add = function (val) {
+//     value += val;
+
+//     return this;
+//   };
+//   this.get = function () {
+//     return value;
+//   };
+//   this.set = function (val) {
+//     value = val;
+
+//     return this;
+//   };
+//   this.reset = function () {
+//     value = initialValue || Buffer.DEFAULT_VALUE;
+
+//     return this;
+//   };
+
+//   return this;
+// }
+// Buffer.DEFAULT_VALUE = '';
+
+// function isInt (arg) {
+//   return !isNaN(parseInt(arg, 10));
+// }
+
+// function isIP (str) {
+//   if (typeof str !== 'string') {
+//     return false;
+//   }
+//   if (str.length !== str.trim().length) {
+//     return false;
+//   }
+
+//   if (str.length < 7 || str.length > 15) {
+//     return false;
+//   }
+
+//   let buffer = new Buffer();
+//   let counter = 0;
+
+//   for (let i = 0; i < str.length; i += 1) {
+//     const symbol = str[i];
+
+//     if (symbol !== '.' && !isInt(symbol)) {
+//       return false;
+//     }
+
+//     if (i === str.length - 1) {
+//       if (symbol === '.') {
+//         return false;
+//       }
+
+//       buffer.add(symbol);
+
+//       if (buffer.get() && buffer.get().length < 4) {
+//         counter += 1;
+//       }
+//     } else {
+//       if (symbol === '.') {
+//         if (buffer.get() && buffer.get().length < 4) {
+//           counter += 1;
+
+//           buffer.reset();
+//         }
+//       } else {
+//         buffer.add(symbol);
+//       }
+//     }
+//   }
+
+//   return counter === 4;
+// }
+// console.log(isIP('sdfsdf'));
+// console.log(isIP('454454'));
+// console.log(isIP(null));
+// console.log(isIP('45.45.47.'));
+// console.log(isIP('45.45.47. 2'));
+// console.log(isIP('45.4547. 2'));
+// console.log(isIP('00000000'));
+// console.log(isIP('00000000'));
+// console.log(isIP('11.8.v.841'));
+// console.log(isIP('11.858.841'));
+// console.log(isIP('11.85.8.8(1'));
+// console.log(isIP('12.12.14.8.'));
+// console.log(isIP('.254.255.0'));
+// console.log(isIP('1.1.1.1a'));
+// console.log(isIP('1'));
+// console.log(isIP('1.23.256.255.'));
+// console.log(isIP('1.23.256..'));
+// console.log(isIP('0..1.0'));
+// console.log(isIP('1.1.1.1.1'));
+// console.log(isIP('a0.1.1.1'));
+// console.log(isIP('129380129831213981.255.255.255'));
+// console.log(isIP('129380129831213981.255.255.255'));
+// console.log(isIP('255.255.255.255abcdekjhf'));
+// console.log(isIP('7283728'));
+// console.log('---------------------------------');
+// console.log(isIP('45.45.47.2'));
+// console.log(isIP('00.4.0.0'));
+// console.log(isIP('1.1.1.1'));
+// console.log(isIP('10.10.10.10'));
+// console.log(isIP('108.108.108.108'));
+// console.log(isIP('11.8.47.841'));
+// console.log(isIP('912.14.0.2'));
+// console.log(isIP('0.254.255.0'));
+// console.log(isIP('1.256.1.1'));
+// console.log(isIP('0.1.1.256'));
