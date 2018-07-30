@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Roboto, Arial, sans-serif;
+}
+
+.backdrop {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 6px solid gray;
+  width: 600px;
+  height: 600px;
+  background-image: repeating-linear-gradient(to left bottom, white, white 5px, #ccc, #ccc 7px);
+  /* position: relative; */
+}
+
+.metrics {
+  box-sizing: content-box;
+  border: 20px solid salmon;
+  width: 320px;
+  height: 320px;
+  padding: 16px 12px;
+  overflow-y: auto;
+  background-color: #fff;
+  font-size: 1.125rem;
+  /* direction: rtl; */
+}
+.metrics h2, .metrics p {
+  margin: 0;
+}
