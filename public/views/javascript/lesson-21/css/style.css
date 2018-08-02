@@ -31,3 +31,32 @@ body {
 .metrics h2, .metrics p {
   margin: 0;
 }
+
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: gray;
+  position: absolute;
+  /* left: 20px; */
+}
+
+.rect {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 260px;
+  height: 180px;
+  background-color: salmon;
+  position: absolute;
+  top: 120px;
+  left: 40px;
+}
+.rect__inner {
+  width: 60px;
+  height: 60px;
+  background-color: palevioletred;
+}
+body {
+  height: 2000px;
+}
