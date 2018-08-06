@@ -342,154 +342,154 @@
 // accordion.setClick();
 
 
-// function SpeedDetector (container, className, minSpeed, callbacks) {
-//   this.container = container;
-//   this.className = className;
-//   this.minSpeed = minSpeed || SpeedDetector.MIN_SPEED;
-//   this.callbacks = callbacks;
+function SpeedDetector (container, className, minSpeed, callbacks) {
+  this.container = container;
+  this.className = className;
+  this.minSpeed = minSpeed || SpeedDetector.MIN_SPEED;
+  this.callbacks = callbacks;
 
-//   this.timerId = null;
-//   this.active = null;
-//   this.speed = 0;
+  this.timerId = null;
+  this.active = null;
+  this.speed = 0;
 
-//   this.onMouseMove = this.onMouseMove.bind(this);
-//   this.onMouseOver = this.onMouseOver.bind(this);
-//   this.onMouseOut = this.onMouseOut.bind(this);
+  this.onMouseMove = this.onMouseMove.bind(this);
+  this.onMouseOver = this.onMouseOver.bind(this);
+  this.onMouseOut = this.onMouseOut.bind(this);
 
-//   return this;
-// }
-// SpeedDetector.prototype.onMouseMove = function (e) {
-//   this.currentX = e.pageX;
-//   this.currentY = e.pageY;
-// };
-// SpeedDetector.prototype.onMouseOver = function (e) {
-//   if (this.active) {
-//     return;
-//   }
+  return this;
+}
+SpeedDetector.prototype.onMouseMove = function (e) {
+  this.currentX = e.pageX;
+  this.currentY = e.pageY;
+};
+SpeedDetector.prototype.onMouseOver = function (e) {
+  if (this.active) {
+    return;
+  }
 
-//   let target = e.target.closest('.' + this.className);
+  let target = e.target.closest('.' + this.className);
 
-//   if (!target) {
-//     return;
-//   }
+  if (!target) {
+    return;
+  }
 
-//   console.log('over');
+  console.log('over');
 
-//   this.active = target;
+  this.active = target;
 
-//   this.startX = e.pageX;
-//   this.startY = e.pageY;
+  this.startX = e.pageX;
+  this.startY = e.pageY;
 
-//   this.timerId = setInterval(() => {
-//     console.log('interval');
-//     this.calcSpeed();
-//   }, 300);
+  this.timerId = setInterval(() => {
+    console.log('interval');
+    this.calcSpeed();
+  }, 300);
 
-//   document.addEventListener('mousemove', this.onMouseMove, false);
-// };
-// SpeedDetector.prototype.onMouseOut = function (e) {
-//   if (!this.active) {
-//     return;
-//   }
+  document.addEventListener('mousemove', this.onMouseMove, false);
+};
+SpeedDetector.prototype.onMouseOut = function (e) {
+  if (!this.active) {
+    return;
+  }
 
-//   let relatedTarget = e.relatedTarget;
+  let relatedTarget = e.relatedTarget;
 
-//   if (relatedTarget) {
-//     if (e.relatedTarget.closest('.' + this.className)) {
-//       return;
-//     }
-//   }
-//   console.log('out');
+  if (relatedTarget) {
+    if (e.relatedTarget.closest('.' + this.className)) {
+      return;
+    }
+  }
+  console.log('out');
 
-//   clearInterval(this.timerId);
+  clearInterval(this.timerId);
 
-//   this.timerId = null;
-//   this.active = null;
+  this.timerId = null;
+  this.active = null;
 
-//   this.callbacks.onOut();
+  this.callbacks.onOut();
 
-//   document.removeEventListener('mousemove', this.onMouseMove);
-// };
-// SpeedDetector.prototype.calcSpeed = function () {
-//   const distance = SpeedDetector.getDistance(this.currentX, this.startX, this.currentY, this.startY);
+  document.removeEventListener('mousemove', this.onMouseMove);
+};
+SpeedDetector.prototype.calcSpeed = function () {
+  const distance = SpeedDetector.getDistance(this.currentX, this.startX, this.currentY, this.startY);
 
-//   this.speed = distance / 300 * 1000;
+  this.speed = distance / 300 * 1000;
 
-//   if (this.speed < this.minSpeed) {
-//     this.startX = this.currentX;
-//     this.startY = this.currentY;
-//   } else {
-//     clearInterval(this.timerId);
+  if (this.speed > this.minSpeed) {
+    this.startX = this.currentX;
+    this.startY = this.currentY;
+  } else {
+    clearInterval(this.timerId);
 
-//     this.timerId = null;
+    this.timerId = null;
 
-//     this.callbacks.onSpeedMore({ top: this.currentY, left: this.currentX });
-//   }
-// };
+    this.callbacks.onSpeedMore({ top: this.currentY, left: this.currentX });
+  }
+};
 
-// SpeedDetector.prototype.setDetection = function () {
-//   document.addEventListener('mouseover', this.onMouseOver, false);
-//   document.addEventListener('mouseout', this.onMouseOut, false);
-// };
-// SpeedDetector.getDistance = function (x1, x2, y1, y2) {
-//   return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
-// };
-// SpeedDetector.MIN_SPEED = 100;
+SpeedDetector.prototype.setDetection = function () {
+  document.addEventListener('mouseover', this.onMouseOver, false);
+  document.addEventListener('mouseout', this.onMouseOut, false);
+};
+SpeedDetector.getDistance = function (x1, x2, y1, y2) {
+  return Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+};
+SpeedDetector.MIN_SPEED = 100;
 
-// function Tooltip (container, className, message) {
-//   this.container = container;
-//   this.className = className;
-//   this.message = message;
+function Tooltip (container, className, message) {
+  this.container = container;
+  this.className = className;
+  this.message = message;
 
-//   this.follow = this.follow.bind(this);
+  this.follow = this.follow.bind(this);
 
-//   return this;
-// }
-// Tooltip.prototype.show = function (coords) {
-//   const tooltip = document.createElement('div');
+  return this;
+}
+Tooltip.prototype.show = function (coords) {
+  const tooltip = document.createElement('div');
 
-//   tooltip.className = 'tooltip';
-//   tooltip.textContent = this.message;
+  tooltip.className = 'tooltip';
+  tooltip.textContent = this.message;
 
-//   this.coords = coords;
+  this.coords = coords;
 
-//   tooltip.style.top = this.coords.top + 10 + 'px';
-//   tooltip.style.left = this.coords.left + 10 + 'px';
+  tooltip.style.top = this.coords.top + 10 + 'px';
+  tooltip.style.left = this.coords.left + 10 + 'px';
 
-//   this.tooltip = tooltip;
+  this.tooltip = tooltip;
 
-//   document.body.appendChild(tooltip);
+  document.body.appendChild(tooltip);
 
-//   document.addEventListener('mousemove', this.follow, false);
-// };
-// Tooltip.prototype.hide = function () {
-//   this.tooltip && this.tooltip.remove();
+  document.addEventListener('mousemove', this.follow, false);
+};
+Tooltip.prototype.hide = function () {
+  this.tooltip && this.tooltip.remove();
 
-//   this.tooltip = null;
+  this.tooltip = null;
 
-//   document.removeEventListener('mousemove', this.follow);
-// };
-// Tooltip.prototype.follow = function (e) {
-//   this.coords.top = e.pageY;
-//   this.coords.left = e.pageX;
+  document.removeEventListener('mousemove', this.follow);
+};
+Tooltip.prototype.follow = function (e) {
+  this.coords.top = e.pageY;
+  this.coords.left = e.pageX;
 
-//   this.tooltip.style.top = this.coords.top + 10 + 'px';
-//   this.tooltip.style.left = this.coords.left + 10 + 'px';
-// };
-// Tooltip.prototype.setDetection = function () {
-//   this.speedDetector = new SpeedDetector(this.container, this.className, 100, {
-//     onSpeedMore: this.show.bind(this),
-//     onOut: this.hide.bind(this),
-//   });
+  this.tooltip.style.top = this.coords.top + 10 + 'px';
+  this.tooltip.style.left = this.coords.left + 10 + 'px';
+};
+Tooltip.prototype.setDetection = function () {
+  this.speedDetector = new SpeedDetector(this.container, this.className, 50, {
+    onSpeedMore: this.show.bind(this),
+    onOut: this.hide.bind(this),
+  });
 
-//   this.speedDetector.setDetection();
-// };
+  this.speedDetector.setDetection();
+};
 
-// Array.prototype.forEach.call(document.querySelectorAll('.speed-detector'), function (item, idx) {
-//   const tooltip = new Tooltip(item, 'speed-detector-' + (idx + 1), item.dataset.tooltip);
+Array.prototype.forEach.call(document.querySelectorAll('.speed-detector'), function (item, idx) {
+  const tooltip = new Tooltip(item, 'speed-detector-' + (idx + 1), item.dataset.tooltip);
 
-//   tooltip.setDetection();
-// });
+  tooltip.setDetection();
+});
 
 
 // Design pattern "Behavior"
